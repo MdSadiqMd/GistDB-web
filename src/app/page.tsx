@@ -17,13 +17,7 @@ const pacifico = Pacifico({
     variable: "--font-pacifico",
 });
 
-export default function HeroGeometric({
-    title1 = "Transform GitHub Gists Into Your Next Database using",
-    title2 = "Gist DB",
-}: {
-    title1?: string;
-    title2?: string;
-}) {
+export default function Page() {
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: (i: number) => ({
@@ -196,7 +190,7 @@ export default function HeroGeometric({
                     >
                         <h1 className="font-bold tracking-tight pb-4 md:pb-8">
                             <span className="h-[9rem] sm:h-[10rem] md:h-[17rem] lg:h-[11rem] block text-4xl sm:text-5xl md:text-6xl xl:text-6xl mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 leading-tight md:leading-normal">
-                                {title1}
+                                Transform GitHub Gists Into Your Next Database using
                             </span>
                             <span
                                 className={cn(
@@ -205,7 +199,7 @@ export default function HeroGeometric({
                                     pacifico.className,
                                 )}
                             >
-                                {title2}
+                                Gist DB
                             </span>
                         </h1>
                     </motion.div>
@@ -220,7 +214,7 @@ export default function HeroGeometric({
                         <p className="text-base sm:text-lg md:text-xl text-white/50 leading-relaxed font-light max-w-xl mx-auto px-2 sm:px-0">
                             Rust-powered database that uses GitHub Gists as storage. Simple, reliable, and secure.
                         </p>
-                        <div className="flex flex-row sm:flex-row items-center justify-center gap-4 mt-6 md:mt-8">
+                        <div className="flex flex-col md:flex-row sm:flex-col items-center justify-center gap-4 mt-6 md:mt-8">
                             <Link
                                 href={"https://github.com/MdSadiqMd/GistDB?tab=readme-ov-file#gist-db"}
                                 target="_self"
@@ -269,4 +263,4 @@ export default function HeroGeometric({
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
         </div>
     );
-}
+};
