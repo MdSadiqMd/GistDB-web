@@ -18,11 +18,9 @@ const pacifico = Pacifico({
 });
 
 export default function HeroGeometric({
-    badge,
     title1 = "Transform GitHub Gists Into Your Next Database using",
     title2 = "Gist DB",
 }: {
-    badge?: string;
     title1?: string;
     title2?: string;
 }) {
