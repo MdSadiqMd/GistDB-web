@@ -3,10 +3,13 @@
 import { motion } from "motion/react";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import { Github, Twitter, Linkedin } from "lucide-react";
-import Btn15 from "@/components/btn-15";
+import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Btn03 from "@/components/btn-03";
+import { ElegantShape } from "@/components/elegant-shape";
 
 const pacifico = Pacifico({
     subsets: ["latin"],
@@ -14,74 +17,8 @@ const pacifico = Pacifico({
     variable: "--font-pacifico",
 });
 
-function ElegantShape({
-    className,
-    delay = 0,
-    width = 400,
-    height = 100,
-    rotate = 0,
-    gradient = "from-white/[0.08]",
-}: {
-    className?: string;
-    delay?: number;
-    width?: number;
-    height?: number;
-    rotate?: number;
-    gradient?: string;
-}) {
-    return (
-        <motion.div
-            initial={{
-                opacity: 0,
-                y: -150,
-                rotate: rotate - 15,
-            }}
-            animate={{
-                opacity: 1,
-                y: 0,
-                rotate: rotate,
-            }}
-            transition={{
-                duration: 2.4,
-                delay,
-                ease: [0.23, 0.86, 0.39, 0.96],
-                opacity: { duration: 1.2 },
-            }}
-            className={cn("absolute", className)}
-        >
-            <motion.div
-                animate={{
-                    y: [0, 15, 0],
-                }}
-                transition={{
-                    duration: 12,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                }}
-                style={{
-                    width,
-                    height,
-                }}
-                className="relative"
-            >
-                <div
-                    className={cn(
-                        "absolute inset-0 rounded-full",
-                        "bg-gradient-to-r from-transparent",
-                        gradient,
-                        "backdrop-blur-[2px] border-2 border-white/[0.15]",
-                        "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-                        "after:absolute after:inset-0 after:rounded-full",
-                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]",
-                    )}
-                />
-            </motion.div>
-        </motion.div>
-    );
-}
-
 export default function HeroGeometric({
-    badge = "Kokonut UI",
+    badge,
     title1 = "Transform GitHub Gists Into Your Next Database using",
     title2 = "Gist DB",
 }: {
@@ -108,25 +45,76 @@ export default function HeroGeometric({
                 <div className="container mx-auto px-6 py-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <Image src="https://kokonutui.com/logo.svg" alt="Logo" width={32} height={32} className="opacity-90" />
-                            <span className="text-white font-semibold text-xl">GistDB</span>
+                            <Image src="https://github.com/user-attachments/assets/e15252b4-4665-478c-94c2-0f0daf6636b0" alt="Logo" width={50} height={50} className="opacity-90" />
+                            {/* <span className="text-white font-semibold text-xl">GistDB</span> */}
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button variant="ghost" size="sm" className="text-white/70 hover:text-white" asChild>
-                                <a href="https://github.com/yourusername/gistdb" className="flex items-center gap-2">
-                                    <Github className="w-5 h-5" />
-                                    <span>Star us</span>
-                                </a>
+                            <Button
+                                variant="default"
+                                size="sm"
+                                className={cn(
+                                    "relative overflow-hidden group",
+                                    "bg-white/5 hover:bg-white/10",
+                                    "border border-white/20 hover:border-white/40",
+                                    "transition-all duration-300 ease-out",
+                                    "text-white hover:text-white/90",
+                                    "shadow-[0_0_12px_-2px_rgba(255,255,255,0.3)] hover:shadow-[0_0_16px_-2px_rgba(255,255,255,0.5)]"
+                                )}
+                                asChild
+                            >
+                                <Link
+                                    href="https://github.com/MdSadiqMd/GistDB"
+                                    className="flex items-center gap-2"
+                                    aria-label="Star us on GitHub"
+                                    target="_blank"
+                                >
+                                    <motion.span
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="relative flex items-center gap-2"
+                                    >
+                                        <Github className="w-5 h-5" />
+                                        <span className="hidden sm:inline">Star us</span>
+                                        {/* <span className="h-[18px] px-2 ml-1 text-sm font-medium rounded-full bg-white/10">
+                                            2.1k
+                                        </span> */}
+                                        <span className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity bg-gradient-to-r from-indigo-400/30 to-rose-400/30" />
+                                    </motion.span>
+                                </Link>
                             </Button>
-                            <Button variant="ghost" size="sm" className="text-white/70 hover:text-white" asChild>
-                                <a href="https://twitter.com/yourusername">
+                            <Button
+                                size="sm"
+                                className={cn("relative overflow-hidden group",
+                                    "bg-white/5 hover:bg-white/10",
+                                    "border border-white/20 hover:border-white/40",
+                                    "transition-all duration-300 ease-out",
+                                    "text-white hover:text-white/90",
+                                    "shadow-[0_0_12px_-2px_rgba(255,255,255,0.3)] hover:shadow-[0_0_16px_-2px_rgba(255,255,255,0.5)]"
+                                )}
+                                asChild>
+                                <Link
+                                    href="https://x.com/Md_Sadiq_Md"
+                                    target="_blank"
+                                >
                                     <Twitter className="w-5 h-5" />
-                                </a>
+                                </Link>
                             </Button>
-                            <Button variant="ghost" size="sm" className="text-white/70 hover:text-white" asChild>
-                                <a href="https://linkedin.com/in/yourusername">
+                            <Button
+                                size="sm"
+                                className={cn("relative overflow-hidden group",
+                                    "bg-white/5 hover:bg-white/10",
+                                    "border border-white/20 hover:border-white/40",
+                                    "transition-all duration-300 ease-out",
+                                    "text-white hover:text-white/90",
+                                    "shadow-[0_0_12px_-2px_rgba(255,255,255,0.3)] hover:shadow-[0_0_16px_-2px_rgba(255,255,255,0.5)]"
+                                )}
+                                asChild>
+                                <Link
+                                    href="https://www.linkedin.com/in/sadiq-mohammad-2b256b227/"
+                                    target="_blank"
+                                >
                                     <Linkedin className="w-5 h-5" />
-                                </a>
+                                </Link>
                             </Button>
                         </div>
                     </div>
@@ -182,9 +170,9 @@ export default function HeroGeometric({
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 md:px-8 py-12">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 py-12">
                 <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
+                    {/* <motion.div
                         custom={0}
                         variants={fadeUpVariants}
                         initial="hidden"
@@ -199,22 +187,23 @@ export default function HeroGeometric({
                             className="opacity-90"
                         />
                         <span className="text-sm font-medium text-white/70 tracking-wide">{badge}</span>
-                    </motion.div>
+                    </motion.div> */}
 
                     <motion.div
                         custom={1}
                         variants={fadeUpVariants}
                         initial="hidden"
                         animate="visible"
-                        className="space-y-6 md:space-y-8"
+                        className="space-y-4 md:space-y-6 lg:space-y-8"
                     >
-                        <h1 className="font-bold tracking-tight pb-4">
-                            <span className="block text-3xl sm:text-4xl md:text-5xl xl:text-6xl mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 leading-tight">
+                        <h1 className="font-bold tracking-tight pb-4 md:pb-8">
+                            <span className="h-[9rem] sm:h-[10rem] md:h-[17rem] lg:h-[11rem] block text-4xl sm:text-5xl md:text-6xl xl:text-6xl mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 leading-tight md:leading-normal">
                                 {title1}
                             </span>
                             <span
                                 className={cn(
-                                    "block text-5xl sm:text-6xl md:text-7xl xl:text-8xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 leading-tight",
+                                    "h-[6rem] sm:h-[6rem] md:h-[8rem] lg:h-[9rem] block text-5xl sm:text-6xl md:text-7xl xl:text-8xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300",
+                                    "leading-tight md:leading-normal",
                                     pacifico.className,
                                 )}
                             >
@@ -223,13 +212,35 @@ export default function HeroGeometric({
                         </h1>
                     </motion.div>
 
-                    <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible" className="mt-12">
-                        <p className="text-lg md:text-xl text-white/50 leading-relaxed font-light max-w-2xl mx-auto">
-                            Crafting exceptional digital experiences through innovative design and cutting-edge technology.
+                    <motion.div
+                        custom={2}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="mt-0 md:mt-0"
+                    >
+                        <p className="text-base sm:text-lg md:text-xl text-white/50 leading-relaxed font-light max-w-xl mx-auto px-2 sm:px-0">
+                            Rust-powered database that uses GitHub Gists as storage. Simple, reliable, and secure.
                         </p>
-                        <div className="flex items-center justify-center gap-4 mt-8">
-                            <Btn15 label="Explore" />
-                            <Btn15 label="Buy me a coffee" />
+                        <div className="flex flex-row sm:flex-row items-center justify-center gap-4 mt-6 md:mt-8">
+                            <Link
+                                href={"https://github.com/MdSadiqMd/GistDB"}
+                                target="_self"
+                            >
+                                <Btn03
+                                    text="Get Started"
+                                    className="w-auto sm:w-auto h-[50px] text-lg sm:text-xl"
+                                />
+                            </Link>
+                            <Button className="w-auto sm:w-auto">
+                                <Image
+                                    src={"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"}
+                                    alt="Buy me a coffee"
+                                    width={170}
+                                    height={60}
+                                    className="w-full h-auto max-w-[180px]"
+                                />
+                            </Button>
                         </div>
                     </motion.div>
                 </div>
