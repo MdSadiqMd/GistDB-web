@@ -224,7 +224,7 @@ export default function HeroGeometric({
                         </p>
                         <div className="flex flex-row sm:flex-row items-center justify-center gap-4 mt-6 md:mt-8">
                             <Link
-                                href={"https://github.com/MdSadiqMd/GistDB"}
+                                href={"https://github.com/MdSadiqMd/GistDB?tab=readme-ov-file#gist-db"}
                                 target="_self"
                             >
                                 <Btn03
@@ -232,14 +232,36 @@ export default function HeroGeometric({
                                     className="w-auto sm:w-auto h-[50px] text-lg sm:text-xl"
                                 />
                             </Link>
-                            <Button className="w-auto sm:w-auto">
-                                <Image
-                                    src={"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"}
-                                    alt="Buy me a coffee"
-                                    width={170}
-                                    height={60}
-                                    className="w-full h-auto max-w-[180px]"
-                                />
+                            <Button
+                                className={cn(
+                                    "relative overflow-hidden group",
+                                    "bg-gradient-to-r from-pink-500/20 to-orange-500/20 hover:from-pink-500/30 hover:to-orange-500/30",
+                                    "border border-pink-400/30 hover:border-pink-400/50",
+                                    "transition-all duration-300 ease-out",
+                                    "text-pink-300 hover:text-pink-200",
+                                    "shadow-[0_0_12px_-2px_rgba(254,202,202,0.3)] hover:shadow-[0_0_16px_-2px_rgba(254,202,202,0.5)]",
+                                    "px-6 sm:px-8",
+                                    "h-[50px] text-lg sm:text-xl"
+                                )}
+                                asChild
+                            >
+                                <motion.span
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="relative flex items-center gap-2"
+                                >
+                                    <Link
+                                        href="https://github.com/sponsors/MdSadiqMd"
+                                        target="_blank"
+                                        className="whitespace-nowrap"
+                                    >
+                                        Sponsor Me
+                                        <span className="ml-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                                            ❤️
+                                        </span>
+                                        <span className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity bg-gradient-to-r from-pink-400/30 to-orange-400/30" />
+                                    </Link>
+                                </motion.span>
                             </Button>
                         </div>
                     </motion.div>
