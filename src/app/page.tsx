@@ -212,11 +212,11 @@ export default function Page() {
                         className="mt-0 md:mt-0"
                     >
                         <p className="text-base sm:text-lg md:text-xl text-white/50 leading-relaxed font-light max-w-xl mx-auto px-2 sm:px-0">
-                            Rust-powered database that uses GitHub Gists as storage. Simple, reliable, and secure.
+                            Rust-powered database that uses GitHub Gists as a storage layer. Simple, Reliable, and Secure.
                         </p>
                         <div className="flex flex-col md:flex-row sm:flex-col items-center justify-center gap-4 mt-6 md:mt-8">
                             <Link
-                                href={"https://github.com/MdSadiqMd/GistDB?tab=readme-ov-file#gist-db"}
+                                href={"https://gist-db.mohammadsadiq4950.workers.dev/docs"}
                                 target="_self"
                             >
                                 <Btn03
